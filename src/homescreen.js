@@ -25,17 +25,16 @@ const HomeScreen = props => {
         'https://newsapi.org/v2/sources?apiKey=d29d58aab88d4ea0b04ddb245a230068',
       );
       // console.log(response.data.sources);
-     
-      
+
       const propertyNames = Object.values(response.data.sources);
-       setData(propertyNames);
+      setData(propertyNames);
       //  console.log(data)
       setloading(false);
     } catch (e) {
       console.log(e);
     }
   }
-  
+
   return (
     <View style={{margin: 10, flex: 1}}>
       {loading ? (
@@ -62,13 +61,16 @@ const HomeScreen = props => {
           </View>
           <ScrollView>
             {data.map((mp, j) => {
-              
-              
+              console.log(mp.url)
               return (
                 <View key={j} style={{}}>
                   <TouchableOpacity
                     onPress={() =>
-                      props.navigation.navigate('Homedeatl', {des:mp.description,name:mp.name})
+                      props.navigation.navigate('Homedeatl', {
+                        des: mp.description,
+                        name: mp.name,
+                        url:mp.url
+                      })
                     }>
                     <View>
                       <Image
@@ -88,7 +90,9 @@ const HomeScreen = props => {
                       margin: 10,
                       justifyContent: 'center',
                     }}>
-                    <Text style={{fontSize: 15}}>{mp.description}</Text>
+                    <Text style={{fontSize: 16, fontWeight: '400'}}>
+                      {mp.description}
+                    </Text>
                   </View>
                 </View>
               );
