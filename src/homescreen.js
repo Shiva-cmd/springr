@@ -71,7 +71,6 @@ const HomeScreen = props => {
                         des: mp.description,
                         name: mp.name,
                         url: mp.url,
-                        
                       })
                     }>
                     <View>
