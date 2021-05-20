@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
@@ -61,7 +63,6 @@ const HomeScreen = props => {
           </View>
           <ScrollView>
             {data.map((mp, j) => {
-              console.log(mp.url)
               return (
                 <View key={j} style={{}}>
                   <TouchableOpacity
@@ -69,13 +70,14 @@ const HomeScreen = props => {
                       props.navigation.navigate('Homedeatl', {
                         des: mp.description,
                         name: mp.name,
-                        url:mp.url
+                        url: mp.url,
+                        
                       })
                     }>
                     <View>
                       <Image
                         source={{
-                          uri: 'https://reactnative.dev/img/tiny_logo.png',
+                          uri: 'https://static9.depositphotos.com/1011646/1236/i/600/depositphotos_12369509-stock-photo-breaking-news-screen.jpg',
                         }}
                         style={{
                           width: '100%',
